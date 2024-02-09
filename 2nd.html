@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG WEBSITE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home">
+    <div class="main-container">
+        <div class="container">
+            <div class="navbar">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-2">
+                <div class="text">
+                    <div class="heading1">Creativity</div>
+                    Unleash your creativity and explore the wonders of imagination! Dive into the world of
+                    possibilities where innovation knows no bounds. Whether it's art, design, or technology,
+                    creativity is the driving force that fuels progress and brings ideas to life.
+                </div>
+                <img class="img1" src="new2.jpg" alt="">
+            </div>
+        </div>
+        <div class="description">
+            <div class="desc-container">Discover the rich tapestry of experiences as you embark on a journey of
+                self-expression. From the strokes of a paintbrush to lines of code, every creation tells a unique
+                story. Join us in celebrating the beauty of imagination and the endless possibilities that creativity
+                unfolds in our lives.</div>
+        </div>
+        <div>
+            <button type="button" class="butn">CONTACT</button>
+        </div>
+        <div id="blog" class="decription-sec">
+            <div class="desc-container">
+                <img class="img2" src="new8.jpg" alt="">
+               <div class="text-about">
+               <div class="heading2">The Essence of Creativity</div>
+                <p>Creativity is more than just a skill; it's a fundamental aspect of human nature. From the earliest cave paintings to modern technological advancements, creativity has been the driving force behind our greatest achievements. It's the spark that ignites innovation, pushing us to think beyond the constraints of the present and envision a better future.</p>
+               </div>
+            </div>
+        </div>
+        
+        <div id="about" class="decription-sec">
+            <div class="desc-container">
+                <img class="img2" src="new9.jpg" alt="">
+               <div class="text-about">
+               <div class="heading2" style="color: rgb(202, 115, 115);">About Our Creativity Blog</div>
+                <p>Welcome to our creativity blog, where we explore the boundless world of imagination and innovation. At [Your Blog Name], we believe that creativity is the key to unlocking endless possibilities and shaping a better world.</p>
+               </div>
+        </div>
+        </div>
+        <div id="contact" class="decription-sec">
+            <div class="desc-container">
+                <img class="img2" src="new11.jpg" alt="">
+               <div class="text-about">
+               <div class="heading2 ">Get in Touch</div>
+                <p>Thank you for your interest in this blog! We're excited to hear from you and welcome any questions, feedback, or collaboration opportunities you may have.</p>
+               </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Use GSAP to create a slide-in animation for the container from the left
+            gsap.from(".container", { x: -2100, opacity: 0, duration: 2, ease: "power2.out" });
+            gsap.from(".butn", { x: -2100, opacity: 0, duration: 4, ease: "power2.out" });
+            // Use GSAP to create a slide-down animation for the section
+            gsap.from(".section", { y: -300, opacity: 0, duration: 2.3, ease: "power2.out" })
+                .then(() => {
+                    // Animation for the description after the section animation completes
+                    gsap.fromTo('.description', { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 2, ease: "power2.out" });
+                });
+
+            // Use GSAP to create a fade-in animation for the main container
+            gsap.from(".main-container", { opacity: 0, duration: 1, ease: "power2.out" });
+
+            // Add ScrollTrigger animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.decription-sec').forEach(section => {
+                gsap.to(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top top',
+                        end: 'bottom top',
+                        pin: true,
+                        pinSpacing: false,
+                        scrub: 0.5, 
+                    ease: "power2.inOut"
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
